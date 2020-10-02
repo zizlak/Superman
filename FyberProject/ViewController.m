@@ -10,6 +10,9 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *iDTextField;
+@property (weak, nonatomic) IBOutlet UITextField *tokenTextField;
+
 @end
 
 @implementation ViewController
