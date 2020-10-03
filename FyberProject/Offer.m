@@ -6,8 +6,8 @@
 //  Copyright © 2020 Zizlak. All rights reserved.
 //
 
-#import "Order.h"
+#import "Offer.h"
 
-@implementation Order
+@implementation Offer
 
 @end

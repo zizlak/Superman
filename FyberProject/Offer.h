@@ -10,9 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Order : NSObject
+@interface Offer : NSObject
 
 @property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSData *picData;
 
 @end
 

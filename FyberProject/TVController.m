@@ -7,7 +7,7 @@
 //
 
 #import "TVController.h"
-#import "Order.h"
+#import "Offer.h"
 #import <CommonCrypto/CommonDigest.h>
 #include <sys/xattr.h>
 
@@ -26,10 +26,9 @@
 @end
 
 
-
 @interface TVController ()
 
-@property (strong, nonatomic) NSMutableArray<Order *> *orders;
+@property (strong, nonatomic) NSMutableArray<Offer *> *offers;
 
 @end
 
@@ -42,7 +41,7 @@ NSString *cellId = @"cellid";
 //MARK: ViewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpOrders];
+    [self setUpOffers];
     
     [self fetchData];
     
@@ -76,38 +75,70 @@ NSString *cellId = @"cellid";
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"Dummy String: %@", dummyString);
+        //   NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //   NSLog(@"Dummy String: %@", dummyString);
+        
+        NSError *err;
+        NSDictionary *offersJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
+        if(err) {
+            NSLog(@"JSON Serialization Failed: %@", err);
+            return;
+        }
+        NSArray *offers = offersJSON[@"offers"];
+        NSMutableArray <Offer *> *offersJSONArray = NSMutableArray.new;
+        for (NSDictionary *item in offers) {
+            NSDictionary *tmbn = item[@"thumbnail"];
+            
+            Offer *offer = Offer.new;
+            offer.title = item[@"title"];
+            NSString *picURLString = tmbn[@"lowres"];
+            NSURL *picURL = [NSURL URLWithString:picURLString];
+            
+            [[NSURLSession.sharedSession dataTaskWithURL: picURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                       offer.picData = data;
+               }]resume];
+            
+            [offersJSONArray addObject:offer];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.offers = offersJSONArray;
+                [self.tableView reloadData];
+            });
+            
+        //    NSLog(@"%@", offersJSONArray);
+        }
+        
     }]resume];
 }
 
-
-
-
-
-//MARK: setUpOrders
--(void) setUpOrders {
-    self.orders = NSMutableArray.new;
+//MARK: setUpOffers
+-(void) setUpOffers {
+    self.offers = NSMutableArray.new;
     
-    Order *order = Order.new;
-    order.title = @"Title";
+    Offer *offer = Offer.new;
+    offer.title = @"Title";
     
-    [self.orders addObject:order];
+    [self.offers addObject:offer];
 }
 
 
 //MARK: Table View
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.orders.count;
+    return self.offers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+  //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     cell.backgroundColor = UIColor.grayColor;
     
-    Order *order = self.orders[indexPath.row];
-    cell.textLabel.text = order.title;
+    Offer *offer = self.offers[indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.text = offer.title;
+    cell.imageView.heightAnchor = 40;
+    cell.imageView.image = [[UIImage alloc] initWithData:offer.picData];
+    
     return cell;
 }
 
