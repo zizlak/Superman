@@ -17,6 +17,7 @@
 		A097EEE1252784BE007E9ECC /* FyberProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EEE0252784BE007E9ECC /* FyberProjectTests.m */; };
 		A097EEEC252784BE007E9ECC /* FyberProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EEEB252784BE007E9ECC /* FyberProjectUITests.m */; };
 		A097EF1D2528E038007E9ECC /* TVController.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EF1C2528E038007E9ECC /* TVController.m */; };
+		A097EF212528E5C9007E9ECC /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EF202528E5C9007E9ECC /* Order.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		A097EEED252784BE007E9ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A097EF1C2528E038007E9ECC /* TVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVController.m; sourceTree = "<group>"; };
 		A097EF1E2528E069007E9ECC /* TVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVController.h; sourceTree = "<group>"; };
+		A097EF1F2528E5C9007E9ECC /* Order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		A097EF202528E5C9007E9ECC /* Order.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				A097EF1E2528E069007E9ECC /* TVController.h */,
 				A097EECB252784B8007E9ECC /* ViewController.m */,
 				A097EF1C2528E038007E9ECC /* TVController.m */,
+				A097EF1F2528E5C9007E9ECC /* Order.h */,
+				A097EF202528E5C9007E9ECC /* Order.m */,
 				A097EECD252784B8007E9ECC /* Main.storyboard */,
 				A097EED0252784BE007E9ECC /* Assets.xcassets */,
 				A097EED2252784BE007E9ECC /* LaunchScreen.storyboard */,
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A097EF212528E5C9007E9ECC /* Order.m in Sources */,
 				A097EF1D2528E038007E9ECC /* TVController.m in Sources */,
 				A097EECC252784B8007E9ECC /* ViewController.m in Sources */,
 				A097EEC6252784B8007E9ECC /* AppDelegate.m in Sources */,
