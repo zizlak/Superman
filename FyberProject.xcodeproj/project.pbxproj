@@ -16,6 +16,7 @@
 		A097EED7252784BE007E9ECC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EED6252784BE007E9ECC /* main.m */; };
 		A097EEE1252784BE007E9ECC /* FyberProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EEE0252784BE007E9ECC /* FyberProjectTests.m */; };
 		A097EEEC252784BE007E9ECC /* FyberProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EEEB252784BE007E9ECC /* FyberProjectUITests.m */; };
+		A097EF1D2528E038007E9ECC /* TVController.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EF1C2528E038007E9ECC /* TVController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		A097EEE7252784BE007E9ECC /* FyberProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FyberProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A097EEEB252784BE007E9ECC /* FyberProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FyberProjectUITests.m; sourceTree = "<group>"; };
 		A097EEED252784BE007E9ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A097EF1C2528E038007E9ECC /* TVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVController.m; sourceTree = "<group>"; };
+		A097EF1E2528E069007E9ECC /* TVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +112,9 @@
 				A097EEC7252784B8007E9ECC /* SceneDelegate.h */,
 				A097EEC8252784B8007E9ECC /* SceneDelegate.m */,
 				A097EECA252784B8007E9ECC /* ViewController.h */,
+				A097EF1E2528E069007E9ECC /* TVController.h */,
 				A097EECB252784B8007E9ECC /* ViewController.m */,
+				A097EF1C2528E038007E9ECC /* TVController.m */,
 				A097EECD252784B8007E9ECC /* Main.storyboard */,
 				A097EED0252784BE007E9ECC /* Assets.xcassets */,
 				A097EED2252784BE007E9ECC /* LaunchScreen.storyboard */,
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A097EF1D2528E038007E9ECC /* TVController.m in Sources */,
 				A097EECC252784B8007E9ECC /* ViewController.m in Sources */,
 				A097EEC6252784B8007E9ECC /* AppDelegate.m in Sources */,
 				A097EED7252784BE007E9ECC /* main.m in Sources */,
