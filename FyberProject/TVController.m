@@ -7,8 +7,11 @@
 //
 
 #import "TVController.h"
+#import "Order.h"
 
 @interface TVController ()
+
+@property (strong, nonatomic) NSMutableArray<Order *> *orders;
 
 @end
 
@@ -16,8 +19,18 @@
 
 NSString *cellId = @"cellid";
 
+
+
+//MARK: ViewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.orders = NSMutableArray.new;
+    
+    Order *order = Order.new;
+    order.title = @"HHH";
+    
+    [self.orders addObject:order];
     
     self.navigationItem.title = @"List of Offers";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
@@ -25,15 +38,21 @@ NSString *cellId = @"cellid";
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:cellId];
 }
 
+
+
+
+//MARK: Table View
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.orders.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = UIColor.grayColor;
-    cell.textLabel.text = @"\(indexPath.row)";
+    
+    Order *order = self.orders[indexPath.row];
+    cell.textLabel.text = order.title;
     return cell;
 }
 
