@@ -18,7 +18,6 @@
 
 @implementation ViewController
 
-@synthesize buttonOutlet;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

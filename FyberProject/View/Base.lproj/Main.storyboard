@@ -31,7 +31,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S19-Kx-edx">
                                         <rect key="frame" x="0.0" y="96" width="394" height="44"/>
                                         <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Sign In"/>
                                         <connections>
                                             <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="obF-Hy-imx"/>
                                         </connections>
@@ -52,7 +52,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="dIk-Uy-q7Z"/>
                     <connections>
-                        <outlet property="buttonOutlet" destination="S19-Kx-edx" id="Soo-J0-z8H"/>
                         <outlet property="iDTextField" destination="Wjt-sc-br6" id="AzR-Db-iEW"/>
                         <outlet property="userIDTF" destination="MgV-d1-BFG" id="cme-tn-HnY"/>
                         <segue destination="DCO-SC-9Kd" kind="show" identifier="showOffer" id="3vd-mh-16k"/>

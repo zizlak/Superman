@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *buttonOutlet;
-- (IBAction)buttonAction:(UIButton *)sender;
+- (IBAction)confirm:(UIButton *)sender;
 
 @end
 
