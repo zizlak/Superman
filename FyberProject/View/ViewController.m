@@ -10,10 +10,6 @@
 #import "TVController.h"
 
 @interface ViewController ()
-
-@property (weak, nonatomic) IBOutlet UITextField *iDTextField;
-@property (weak, nonatomic) IBOutlet UITextField *userIDTF;
-
 @end
 
 @implementation ViewController
@@ -28,13 +24,17 @@
     if ([segue.identifier isEqualToString:@"showOffer"]) {
         
         TVController * tvc = [segue destinationViewController];
-        tvc.appID = self.iDTextField.text;
+        tvc.appID = self.idTextField.text;
         tvc.userID = self.userIDTF.text;
 
         
     }
 }
 - (IBAction)buttonAction:(UIButton *)sender {
+    [self signIn];
+}
+
+-(void)signIn {
     [self performSegueWithIdentifier:@"showOffer" sender:self];
 }
 

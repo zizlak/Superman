@@ -52,8 +52,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="dIk-Uy-q7Z"/>
                     <connections>
-                        <outlet property="iDTextField" destination="Wjt-sc-br6" id="AzR-Db-iEW"/>
-                        <outlet property="userIDTF" destination="MgV-d1-BFG" id="cme-tn-HnY"/>
+                        <outlet property="idTextField" destination="Wjt-sc-br6" id="3b9-fe-fFD"/>
+                        <outlet property="userIDTF" destination="MgV-d1-BFG" id="o8Y-bG-LID"/>
                         <segue destination="DCO-SC-9Kd" kind="show" identifier="showOffer" id="3vd-mh-16k"/>
                     </connections>
                 </viewController>

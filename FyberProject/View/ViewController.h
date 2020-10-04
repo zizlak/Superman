@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-- (IBAction)confirm:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITextField *idTextField;
+@property (weak, nonatomic) IBOutlet UITextField *userIDTF;
+//@property (weak, nonatomic) NSString * appIDTFText;
+-(void)signIn;
 
 @end
 

@@ -28,7 +28,10 @@
 
 - (void)testExample {
     
-   // _vcToTest.buttin
+    _vcToTest.
+    
+    [_vcToTest signIn];
+    
 }
 
 - (void)testPerformanceExample {
