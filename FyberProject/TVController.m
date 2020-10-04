@@ -34,14 +34,17 @@
 
 @implementation TVController
 
-NSString *cellId = @"cellid";
+@synthesize appID, token;
 
+NSString *cellId = @"cellid";
 
 
 //MARK: ViewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpOffers];
+    
+    NSLog(self.appID);
     
     [self fetchData];
     

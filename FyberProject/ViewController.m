@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TVController.h"
 
 @interface ViewController ()
 
@@ -20,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showOffer"]) {
+        
+        TVController * tvc = [segue destinationViewController];
+        tvc.appID = self.iDTextField.text;
+    }
 }
 
 

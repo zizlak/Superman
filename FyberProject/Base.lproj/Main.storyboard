@@ -33,7 +33,7 @@
                                         <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="DCO-SC-9Kd" kind="show" id="kpt-i1-Bn0"/>
+                                            <segue destination="DCO-SC-9Kd" kind="show" identifier="showOffer" id="RrM-py-458"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -58,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
+            <point key="canvasLocation" x="971" y="113"/>
         </scene>
         <!--Controller-->
         <scene sceneID="r7Y-0r-qga">
