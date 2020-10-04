@@ -95,7 +95,12 @@ NSString *cellId = @"cellid";
             NSURL *picURL = [NSURL URLWithString:picURLString];
             
             [[NSURLSession.sharedSession dataTaskWithURL: picURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                       offer.picData = data;
+                       
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    offer.picData = data;
+                    [self.tableView reloadData];
+                });
+                
                }]resume];
             
             [offersJSONArray addObject:offer];
@@ -134,9 +139,8 @@ NSString *cellId = @"cellid";
     cell.backgroundColor = UIColor.grayColor;
     
     Offer *offer = self.offers[indexPath.row];
-    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.adjustsFontSizeToFitWidth = true;
     cell.textLabel.text = offer.title;
-    cell.imageView.heightAnchor = 40;
     cell.imageView.image = [[UIImage alloc] initWithData:offer.picData];
     
     return cell;
