@@ -171,7 +171,3 @@ NSString *cellId = @"cellid";
 }
 
 @end
-
-
-
-
