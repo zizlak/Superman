@@ -34,7 +34,7 @@
 
 @implementation TVController
 
-@synthesize appID, token;
+@synthesize token, appID;
 
 NSString *cellId = @"cellid";
 
@@ -43,8 +43,6 @@ NSString *cellId = @"cellid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpOffers];
-    
-    NSLog(self.appID);
     
     [self fetchData];
     
@@ -59,14 +57,17 @@ NSString *cellId = @"cellid";
     
     //MARK: URLString
     NSString *http = @"http://api.fyber.com/feed/v1/offers.json?";
-    NSString *string0 = @"appid=2070&google_ad_id=a0b0c0d0-a0b0-c0d0-e0f0-a0b0c0d0e0f0&google_ad_id_limited_tracking_enabled=true&ip=109.235.143.113&locale=de&page=2&pub0=campaign2&timestamp=";
+    NSString *string0 = @"appid=";
+    string0 = [string0 stringByAppendingString:appID];
+    string0 = [string0 stringByAppendingString:@"&ip=109.235.143.113&locale=de&timestamp="];
     
     NSString *date = [NSString stringWithFormat:@"%lu", (long)[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] integerValue]];
     
     NSString *string = [string0 stringByAppendingString:date];
-    string = [string stringByAppendingString:@"&uid=superman"];
+    string = [string stringByAppendingString:@"&uid=superman&"];
     
-    NSString *stringWithToken = [string stringByAppendingString:@"&1c915e3b5d42d05136185030892fbb846c278927"];
+    NSLog(token);
+    NSString *stringWithToken = [string stringByAppendingString:@"1c915e3b5d42d05136185030892fbb846c278927"];
     NSString *hash = stringWithToken.sha1;
     
     string = [http stringByAppendingString:string];
@@ -139,7 +140,6 @@ NSString *cellId = @"cellid";
     
   //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    cell.backgroundColor = UIColor.grayColor;
     
     Offer *offer = self.offers[indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = true;

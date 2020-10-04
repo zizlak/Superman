@@ -28,6 +28,8 @@
         
         TVController * tvc = [segue destinationViewController];
         tvc.appID = self.iDTextField.text;
+        tvc.token = self.tokenTextField.text;
+        NSLog(self.tokenTextField.text);
     }
 }
 
