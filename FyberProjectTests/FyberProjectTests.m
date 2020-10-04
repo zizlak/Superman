@@ -28,10 +28,6 @@
 
 - (void)testExample {
     
-    _vcToTest.
-    
-    [_vcToTest signIn];
-    
 }
 
 - (void)testPerformanceExample {

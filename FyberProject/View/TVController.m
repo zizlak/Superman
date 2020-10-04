@@ -30,14 +30,11 @@
 @interface TVController ()
 @property (strong, nonatomic) NSMutableArray<Offer *> *offers;
 
-
 @end
 
 //MARK: TVController
 @implementation TVController
 @synthesize appID, userID;
-
-
 
 //MARK: ViewDidLoad
 - (void)viewDidLoad {
