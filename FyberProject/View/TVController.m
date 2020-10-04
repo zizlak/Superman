@@ -26,19 +26,14 @@
 }
 @end
 
-
+//MARK: Interface
 @interface TVController ()
-
 @property (strong, nonatomic) NSMutableArray<Offer *> *offers;
-
 @end
 
+//MARK: TVController
 @implementation TVController
-
 @synthesize appID, userID;
-
-NSString *cellId = @"cellid";
-
 
 //MARK: ViewDidLoad
 - (void)viewDidLoad {
@@ -48,8 +43,6 @@ NSString *cellId = @"cellid";
     
     self.navigationItem.title = @"List of Offers";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:cellId];
 }
 
 
@@ -75,7 +68,6 @@ NSString *cellId = @"cellid";
     string = [string stringByAppendingString:@"&hashkey="];
     string = [string stringByAppendingString:hash];
 
-    
     
     //MARK: URLSession
     NSURL *url = [NSURL URLWithString:string];
@@ -153,13 +145,10 @@ NSString *cellId = @"cellid";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    
     UITableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    Cell *cell = (UITableViewCell *)cell0;
+    Cell *cell = Cell.new;
+    if (cell = (UITableViewCell *)cell0) {
     
     Offer *offer = self.offers[indexPath.row];
     
@@ -168,6 +157,9 @@ NSString *cellId = @"cellid";
     cell.labelCell.adjustsFontSizeToFitWidth = true;
     
     return cell;
+    } else {
+        return UITableViewCell.new;
+    }
 }
 
 //MARK: returnEmptyTableView

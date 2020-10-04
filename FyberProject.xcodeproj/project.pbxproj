@@ -113,23 +113,10 @@
 		A097EEC3252784B8007E9ECC /* FyberProject */ = {
 			isa = PBXGroup;
 			children = (
-				A097EEC4252784B8007E9ECC /* AppDelegate.h */,
-				A097EEC5252784B8007E9ECC /* AppDelegate.m */,
-				A097EEC7252784B8007E9ECC /* SceneDelegate.h */,
-				A097EEC8252784B8007E9ECC /* SceneDelegate.m */,
-				A097EECA252784B8007E9ECC /* ViewController.h */,
-				A097EECB252784B8007E9ECC /* ViewController.m */,
-				A097EF1E2528E069007E9ECC /* TVController.h */,
-				A097EF1C2528E038007E9ECC /* TVController.m */,
-				A097EF1F2528E5C9007E9ECC /* Offer.h */,
-				A097EF2A2529FDB1007E9ECC /* Cell.h */,
-				A097EF2B2529FDB1007E9ECC /* Cell.m */,
-				A097EF202528E5C9007E9ECC /* Offer.m */,
-				A097EECD252784B8007E9ECC /* Main.storyboard */,
-				A097EED0252784BE007E9ECC /* Assets.xcassets */,
-				A097EED2252784BE007E9ECC /* LaunchScreen.storyboard */,
-				A097EED5252784BE007E9ECC /* Info.plist */,
-				A097EED6252784BE007E9ECC /* main.m */,
+				A097EF2F252A0644007E9ECC /* Supporting Files */,
+				A097EF2D252A0604007E9ECC /* Model */,
+				A097EF2E252A0628007E9ECC /* View */,
+				A097EF30252A0EF3007E9ECC /* Controller */,
 			);
 			path = FyberProject;
 			sourceTree = "<group>";
@@ -150,6 +137,51 @@
 				A097EEED252784BE007E9ECC /* Info.plist */,
 			);
 			path = FyberProjectUITests;
+			sourceTree = "<group>";
+		};
+		A097EF2D252A0604007E9ECC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A097EF1F2528E5C9007E9ECC /* Offer.h */,
+				A097EF202528E5C9007E9ECC /* Offer.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A097EF2E252A0628007E9ECC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A097EED2252784BE007E9ECC /* LaunchScreen.storyboard */,
+				A097EECD252784B8007E9ECC /* Main.storyboard */,
+				A097EECA252784B8007E9ECC /* ViewController.h */,
+				A097EECB252784B8007E9ECC /* ViewController.m */,
+				A097EF1E2528E069007E9ECC /* TVController.h */,
+				A097EF1C2528E038007E9ECC /* TVController.m */,
+				A097EF2A2529FDB1007E9ECC /* Cell.h */,
+				A097EF2B2529FDB1007E9ECC /* Cell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A097EF2F252A0644007E9ECC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A097EED0252784BE007E9ECC /* Assets.xcassets */,
+				A097EEC4252784B8007E9ECC /* AppDelegate.h */,
+				A097EEC5252784B8007E9ECC /* AppDelegate.m */,
+				A097EEC7252784B8007E9ECC /* SceneDelegate.h */,
+				A097EEC8252784B8007E9ECC /* SceneDelegate.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A097EF30252A0EF3007E9ECC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A097EED5252784BE007E9ECC /* Info.plist */,
+				A097EED6252784BE007E9ECC /* main.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,7 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SFU59SCCX;
-				INFOPLIST_FILE = FyberProject/Info.plist;
+				INFOPLIST_FILE = FyberProject/Controller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SFU59SCCX;
-				INFOPLIST_FILE = FyberProject/Info.plist;
+				INFOPLIST_FILE = FyberProject/Controller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
