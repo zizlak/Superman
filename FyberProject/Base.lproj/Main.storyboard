@@ -52,6 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dIk-Uy-q7Z"/>
                     <connections>
+                        <outlet property="buttonOutlet" destination="S19-Kx-edx" id="Soo-J0-z8H"/>
                         <outlet property="iDTextField" destination="Wjt-sc-br6" id="AzR-Db-iEW"/>
                         <outlet property="userIDTF" destination="MgV-d1-BFG" id="cme-tn-HnY"/>
                         <segue destination="DCO-SC-9Kd" kind="show" identifier="showOffer" id="3vd-mh-16k"/>

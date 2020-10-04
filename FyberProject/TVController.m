@@ -79,6 +79,14 @@ NSString *cellId = @"cellid";
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
+        
+        
+        //MARK: DataString
+        NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        dummyString = [dummyString stringByAppendingString:@"1c915e3b5d42d05136185030892fbb846c278927"];
+        dummyString = dummyString.sha1;
+        
+        //MARK: JSON
         NSError *err;
         NSDictionary *offersJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
         if(err) {
