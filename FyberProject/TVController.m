@@ -133,9 +133,7 @@ NSString *cellId = @"cellid";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     Offer *offer = self.offers[indexPath.row];
     cell.textLabel.adjustsFontSizeToFitWidth = true;
     cell.textLabel.text = offer.title;
