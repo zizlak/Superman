@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ViewController.h"
 
 @interface FyberProjectTests : XCTestCase
+@property ViewController *vcToTest;
 
 @end
 
@@ -16,6 +18,7 @@
 
 - (void)setUp {
     [super setUp];
+    _vcToTest = [[ViewController alloc] init];
 
 }
 
@@ -24,7 +27,6 @@
 }
 
 - (void)testExample {
-    
 }
 
 - (void)testPerformanceExample {
