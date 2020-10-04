@@ -12,7 +12,7 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *iDTextField;
-@property (weak, nonatomic) IBOutlet UITextField *tokenTextField;
+@property (weak, nonatomic) IBOutlet UITextField *userIDTF;
 
 @end
 
@@ -28,10 +28,12 @@
         
         TVController * tvc = [segue destinationViewController];
         tvc.appID = self.iDTextField.text;
-        tvc.token = self.tokenTextField.text;
-        NSLog(self.tokenTextField.text);
+        tvc.userID = self.userIDTF.text;
+        
     }
 }
-
+- (IBAction)buttonAction:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"showOffer" sender:self];
+}
 
 @end

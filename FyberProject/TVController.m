@@ -34,7 +34,7 @@
 
 @implementation TVController
 
-@synthesize token, appID;
+@synthesize appID, userID;
 
 NSString *cellId = @"cellid";
 
@@ -64,10 +64,10 @@ NSString *cellId = @"cellid";
     NSString *date = [NSString stringWithFormat:@"%lu", (long)[[NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]] integerValue]];
     
     NSString *string = [string0 stringByAppendingString:date];
-    string = [string stringByAppendingString:@"&uid=superman&"];
+    string = [string stringByAppendingString:@"&uid="];
+    string = [string stringByAppendingString:userID];
     
-    NSLog(token);
-    NSString *stringWithToken = [string stringByAppendingString:@"1c915e3b5d42d05136185030892fbb846c278927"];
+    NSString *stringWithToken = [string stringByAppendingString:@"&1c915e3b5d42d05136185030892fbb846c278927"];
     NSString *hash = stringWithToken.sha1;
     
     string = [http stringByAppendingString:string];
@@ -78,9 +78,6 @@ NSString *cellId = @"cellid";
     NSURL *url = [NSURL URLWithString:string];
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        //   NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        //   NSLog(@"Dummy String: %@", dummyString);
         
         NSError *err;
         NSDictionary *offersJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
@@ -99,13 +96,13 @@ NSString *cellId = @"cellid";
             NSURL *picURL = [NSURL URLWithString:picURLString];
             
             [[NSURLSession.sharedSession dataTaskWithURL: picURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                       
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     offer.picData = data;
                     [self.tableView reloadData];
                 });
                 
-               }]resume];
+            }]resume];
             
             [offersJSONArray addObject:offer];
             
@@ -113,8 +110,6 @@ NSString *cellId = @"cellid";
                 self.offers = offersJSONArray;
                 [self.tableView reloadData];
             });
-            
-        //    NSLog(@"%@", offersJSONArray);
         }
         
     }]resume];
@@ -138,7 +133,7 @@ NSString *cellId = @"cellid";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-  //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    //  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     
     Offer *offer = self.offers[indexPath.row];

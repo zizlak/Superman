@@ -18,14 +18,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7Dy-vh-C4t">
                                 <rect key="frame" x="10" y="108" width="394" height="140"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wjt-sc-br6">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AppID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wjt-sc-br6">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MgV-d1-BFG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User ID" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="MgV-d1-BFG">
                                         <rect key="frame" x="0.0" y="48" width="394" height="44"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S19-Kx-edx">
@@ -33,7 +33,7 @@
                                         <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="DCO-SC-9Kd" kind="show" identifier="showOffer" id="RrM-py-458"/>
+                                            <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="obF-Hy-imx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -53,7 +53,8 @@
                     <navigationItem key="navigationItem" id="dIk-Uy-q7Z"/>
                     <connections>
                         <outlet property="iDTextField" destination="Wjt-sc-br6" id="AzR-Db-iEW"/>
-                        <outlet property="tokenTextField" destination="MgV-d1-BFG" id="jU0-PW-ooX"/>
+                        <outlet property="userIDTF" destination="MgV-d1-BFG" id="cme-tn-HnY"/>
+                        <segue destination="DCO-SC-9Kd" kind="show" identifier="showOffer" id="3vd-mh-16k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -63,7 +64,7 @@
         <!--Controller-->
         <scene sceneID="r7Y-0r-qga">
             <objects>
-                <tableViewController id="DCO-SC-9Kd" customClass="TVController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="offers" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DCO-SC-9Kd" customClass="TVController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BcL-qp-dAI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
