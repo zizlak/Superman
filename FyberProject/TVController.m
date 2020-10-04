@@ -8,6 +8,7 @@
 
 #import "TVController.h"
 #import "Offer.h"
+#import "Cell.h"
 #import <CommonCrypto/CommonDigest.h>
 #include <sys/xattr.h>
 
@@ -152,11 +153,19 @@ NSString *cellId = @"cellid";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    UITableViewCell *cell0 = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    Cell *cell = (UITableViewCell *)cell0;
+    
     Offer *offer = self.offers[indexPath.row];
-    cell.textLabel.adjustsFontSizeToFitWidth = true;
-    cell.textLabel.text = offer.title;
-    cell.imageView.image = [[UIImage alloc] initWithData:offer.picData];
+    
+    cell.labelCell.text = offer.title;
+    cell.imageOffer.image = [[UIImage alloc] initWithData:offer.picData];
+    cell.labelCell.adjustsFontSizeToFitWidth = true;
     
     return cell;
 }

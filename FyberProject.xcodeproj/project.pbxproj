@@ -18,6 +18,7 @@
 		A097EEEC252784BE007E9ECC /* FyberProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EEEB252784BE007E9ECC /* FyberProjectUITests.m */; };
 		A097EF1D2528E038007E9ECC /* TVController.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EF1C2528E038007E9ECC /* TVController.m */; };
 		A097EF212528E5C9007E9ECC /* Offer.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EF202528E5C9007E9ECC /* Offer.m */; };
+		A097EF2C2529FDB1007E9ECC /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A097EF2B2529FDB1007E9ECC /* Cell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		A097EF1E2528E069007E9ECC /* TVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVController.h; sourceTree = "<group>"; };
 		A097EF1F2528E5C9007E9ECC /* Offer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Offer.h; sourceTree = "<group>"; };
 		A097EF202528E5C9007E9ECC /* Offer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Offer.m; sourceTree = "<group>"; };
+		A097EF2A2529FDB1007E9ECC /* Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		A097EF2B2529FDB1007E9ECC /* Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				A097EF1E2528E069007E9ECC /* TVController.h */,
 				A097EF1C2528E038007E9ECC /* TVController.m */,
 				A097EF1F2528E5C9007E9ECC /* Offer.h */,
+				A097EF2A2529FDB1007E9ECC /* Cell.h */,
+				A097EF2B2529FDB1007E9ECC /* Cell.m */,
 				A097EF202528E5C9007E9ECC /* Offer.m */,
 				A097EECD252784B8007E9ECC /* Main.storyboard */,
 				A097EED0252784BE007E9ECC /* Assets.xcassets */,
@@ -283,6 +288,7 @@
 				A097EEC6252784B8007E9ECC /* AppDelegate.m in Sources */,
 				A097EED7252784BE007E9ECC /* main.m in Sources */,
 				A097EEC9252784B8007E9ECC /* SceneDelegate.m in Sources */,
+				A097EF2C2529FDB1007E9ECC /* Cell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
