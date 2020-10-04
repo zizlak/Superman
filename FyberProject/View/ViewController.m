@@ -31,6 +31,7 @@
         TVController * tvc = [segue destinationViewController];
         tvc.appID = self.iDTextField.text;
         tvc.userID = self.userIDTF.text;
+
         
     }
 }
