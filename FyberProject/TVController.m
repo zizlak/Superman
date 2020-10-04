@@ -11,7 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #include <sys/xattr.h>
 
-//MARK: HASH SHA1
+//MARK: Hash SHA1
 @implementation NSString (reverse)
 -(NSString*)sha1
 {
@@ -42,7 +42,6 @@ NSString *cellId = @"cellid";
 //MARK: ViewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpOffers];
     
     [self fetchData];
     
@@ -51,6 +50,7 @@ NSString *cellId = @"cellid";
     
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:cellId];
 }
+
 
 //MARK: fetchData
 -(void) fetchData {
@@ -73,24 +73,46 @@ NSString *cellId = @"cellid";
     string = [http stringByAppendingString:string];
     string = [string stringByAppendingString:@"&hashkey="];
     string = [string stringByAppendingString:hash];
+
+    
     
     //MARK: URLSession
     NSURL *url = [NSURL URLWithString:string];
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
+        if(error) {
+            NSLog(@"URLSession Request failed: %@", error);
+            
+            [self returnEmptyTable];
+            return;
+        }
         
+        //MARK: Signature
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
-        //MARK: DataString
-        NSString *dummyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        dummyString = [dummyString stringByAppendingString:@"1c915e3b5d42d05136185030892fbb846c278927"];
-        dummyString = dummyString.sha1;
+        if ([httpResponse respondsToSelector:@selector(allHeaderFields)]) {
+            NSDictionary *dictionary = [httpResponse allHeaderFields];
+            
+            NSString *signature = dictionary[@"X-Sponsorpay-Response-Signature"];
+            
+            NSString *hashedResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            hashedResponse = [hashedResponse stringByAppendingString:@"1c915e3b5d42d05136185030892fbb846c278927"];
+            hashedResponse = hashedResponse.sha1;
+            
+            if (![hashedResponse isEqual:signature]){
+                NSLog(@"Response is not valid; Signature mismatch problem");
+                [self returnEmptyTable];
+                return;
+            }
+        }
         
         //MARK: JSON
         NSError *err;
         NSDictionary *offersJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&err];
         if(err) {
             NSLog(@"JSON Serialization Failed: %@", err);
+            [self returnEmptyTable];
             return;
         }
         NSArray *offers = offersJSON[@"offers"];
@@ -123,17 +145,6 @@ NSString *cellId = @"cellid";
     }]resume];
 }
 
-//MARK: setUpOffers
--(void) setUpOffers {
-    self.offers = NSMutableArray.new;
-    
-    Offer *offer = Offer.new;
-    offer.title = @"Title";
-    
-    [self.offers addObject:offer];
-}
-
-
 //MARK: Table View
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.offers.count;
@@ -148,6 +159,15 @@ NSString *cellId = @"cellid";
     cell.imageView.image = [[UIImage alloc] initWithData:offer.picData];
     
     return cell;
+}
+
+//MARK: returnEmptyTableView
+- (void) returnEmptyTable {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray <Offer *> *empty = NSMutableArray.new;
+        self.offers = empty;
+        [self.tableView reloadData];
+    });
 }
 
 @end
